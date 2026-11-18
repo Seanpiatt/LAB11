@@ -1,2 +1,13 @@
 2a.
+Batched 30fps and unbatched 160fps.
+
+It turns out that my initial test showed that my batch implemenation was slower than the unbatched.
+My initial program was outputting a red sphere because I had the wrong y coordiante lookup.
+Once I fixed the lookup, I also realized on my laptop is running the INtegrated Intel GPU, which is
+probably affecting the speed as well.
+
 2b.
+
+GPU's can store a depth number, compare sprites and the lower depth sprite is thrown away (through glEnable(GL_DEPTH_TEST)).
+Notes that means that the GPU does not understand transparency because the sprite is either enabled or not.
+Overall it is minium work becasue the comaprison is already baked in to the GPU during rasterization.
